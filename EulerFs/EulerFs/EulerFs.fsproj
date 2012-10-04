@@ -50,6 +50,7 @@
     <None Include="Problem1.fsx" />
     <None Include="Problem2.fsx" />
     <None Include="Problem3.fsx" />
+    <None Include="Problem4.fsx" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
