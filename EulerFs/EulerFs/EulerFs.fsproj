@@ -36,6 +36,9 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BigInt">
+      <HintPath>..\dependencies\BigInt.dll</HintPath>
+    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="FSharp.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <Private>True</Private>
@@ -61,6 +64,9 @@
     <None Include="Problem12.fsx" />
     <None Include="Problem13.fsx" />
     <None Include="Problem14.fsx" />
+    <None Include="Problem15.fsx" />
+    <None Include="Problem16.fsx" />
+    <None Include="Problem17.fsx" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
