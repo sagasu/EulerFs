@@ -16,9 +16,9 @@
             [04; 62; 98; 27; 23; 09; 70; 98; 73; 93; 38; 53; 60; 04; 23]];
 
 let problem18 = 
-    let reversedData = Array.ofSeq data |> Array.rev |> Seq.ofArray
+    let reversedData = Array.ofSeq data |> Array.rev
     let getMax x = Seq.pairwise x |> Seq.map (fun (first,second) -> max first second)
-    Seq.reduce (fun (x:int list ) (y:int list) -> 
-                    List.ofSeq(Seq.map (fun (first, second) -> first + second)
-                                (Seq.zip y (getMax x))))
+    Seq.reduce (fun x y -> 
+                    List.ofSeq (Seq.map (fun (first, second) -> first + second)
+                                        (Seq.zip y (getMax x))))
                reversedData
