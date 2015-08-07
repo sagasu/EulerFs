@@ -65,6 +65,7 @@
     <None Include="Problem21.fsx" />
     <Content Include="names.txt" />
     <None Include="Problem22.fsx" />
+    <None Include="Problem23.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="BigInt">

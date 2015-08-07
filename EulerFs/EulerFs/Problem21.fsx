@@ -21,14 +21,3 @@ let problem21 uppLimit=
             acc)
         0
         [2..uppLimit]
-
-//let sieveOfEratosthenes n = 
-//    let rec sieveOfEratosthenes n p filteredSeq =
-//        match p * p > n with
-//        | true -> filteredSeq
-//        | false -> 
-//            let filSeq = filteredSeq |> Seq.filter (fun x -> (x % p <> 0) || (x = p))
-//            //System.Console.WriteLine("{0} {1}", p, Seq.fold (fun acc x -> acc + " " + x.ToString()) "" filSeq)
-//            sieveOfEratosthenes n (Seq.nth ((Seq.findIndex (fun x -> x = p) filSeq) + 1) filSeq) filSeq
-//    sieveOfEratosthenes n 2 (seq {2 .. n})
-

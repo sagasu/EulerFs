@@ -41,6 +41,7 @@ let getTriangle2 =
         | _ -> getTriangle (n + 1) (triangle + n)
     getTriangle 1 0
 
+// returns a list of all prime numbers <= n
 let sieveOfEratosthenes n = 
     let rec sieveOfEratosthenes n p filteredSeq =
         match p * p > n with
