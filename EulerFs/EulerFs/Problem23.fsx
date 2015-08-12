@@ -31,9 +31,19 @@ let isAbudent n =
 let allAbudentNumbers = 
     [12 .. 28123] |> Seq.filter(fun x -> isAbudent x) 
 
-let canNotBeWritenAsAumOfAbudentNumbers n =
-    allAbudentNumbers |> Seq.filter(fun x -> x < n/2) 
+let canNotBeWrittenAsSumOfAbudentNumbers n ab1 ab2 = 
+    match ab1 + ab2 = n with
+    | true -> true
+    | false -> false
+
+let cross f L1 L2 number = 
+    [for x in L1 do
+            for y in L2 -> f x y number]
+
+let canNotBeWrittenAsAumOfAbudentNumbers n =
+    let availableAbudentNumbers = allAbudentNumbers |> Seq.filter(fun x -> x < n/2) 
+    cross (fun a b number -> a + b = number) availableAbudentNumbers availableAbudentNumbers
     true
 
 let sumNonAbundantNumbers = 
-    [0 .. 28123] |> Seq.filter(fun x -> canNotBeWritenAsAumOfAbudentNumbers x) |> Seq.sum(fun x -> x)
+    [0 .. 28123] |> Seq.filter(fun x -> canNotBeWrittenAsAumOfAbudentNumbers x) |> Seq.fold(fun acc curr -> acc + curr) 0
