@@ -36,14 +36,13 @@ let canNotBeWrittenAsSumOfAbudentNumbers n ab1 ab2 =
     | true -> true
     | false -> false
 
-let cross f L1 L2 number = 
-    [for x in L1 do
-            for y in L2 -> f x y number]
+let cross n aan =
+    Seq.fold(fun acc curr -> Seq.fold(fun acc1 curr1 -> if curr1 + curr = n then (curr, curr1) :: acc1 else acc1) [] n) [] aan
 
-let canNotBeWrittenAsAumOfAbudentNumbers n =
+let canNotBeWrittenAsSumOfAbudentNumbers n =
     let availableAbudentNumbers = allAbudentNumbers |> Seq.filter(fun x -> x < n/2) 
-    cross (fun a b number -> a + b = number) availableAbudentNumbers availableAbudentNumbers
+    (cross n availableAbudentNumbers)
     true
 
 let sumNonAbundantNumbers = 
-    [0 .. 28123] |> Seq.filter(fun x -> canNotBeWrittenAsAumOfAbudentNumbers x) |> Seq.fold(fun acc curr -> acc + curr) 0
+    [0 .. 28123] |> Seq.filter(fun x -> canNotBeWrittenAsSumOfAbudentNumbers x) |> Seq.fold(fun acc curr -> acc + curr) 0
