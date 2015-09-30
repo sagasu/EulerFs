@@ -31,8 +31,11 @@ let isAbudent n =
 let allAbudentNumbers = 
     [12 .. 28123] |> Seq.filter(fun x -> isAbudent x) 
 
+let abudentNumberTuplesToSumUpToN2 abudantNumberPairsThatSumToN abudantNumber n aan = 
+    Seq.fold(fun acc1 curr1 -> if (curr1 + abudantNumber) = n then (abudantNumber, curr1) :: acc1 else acc1) abudantNumberPairsThatSumToN aan
+
 let abudentNumberTuplesToSumUpToN n aan =
-    Seq.fold(fun acc curr -> Seq.fold(fun acc1 curr1 -> if (curr1 + curr) = n then (curr, curr1) :: acc1 else acc1) acc n) [] aan
+    Seq.fold(fun acc abudantNumber -> abudentNumberTuplesToSumUpToN2 acc abudantNumber n aan) [] aan
 
 let canNotBeWrittenAsSumOfAbudentNumbers n =
     let availableAbudentNumbers = allAbudentNumbers |> Seq.filter(fun x -> x < n/2) 
